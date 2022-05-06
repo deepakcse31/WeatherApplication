@@ -38,12 +38,38 @@ class TamperatureViewModel @Inject  constructor(
     init {
 
 
-        fetchweather()
+        //fetchweather()
     }
-    private fun fetchweather()
-    {
+     fun fetchweather(lat : Double, lng :Double) {
         viewModelScope.launch {
-     /*   mainRepository.latlng(12.9716,77.5946).let {
+
+            _users.postValue(Resource.loading(null))
+            if (networkHelper.isNetworkConnected())
+            {
+                Log.e("Networkconnected","NetworkConnected"+"Networkconnected")
+                mainRepository.latlng(lat,lng).let {
+
+                    //Log.e("DataResponse-->","DataResponse-->"+it.body())
+                    // Log.e("ResourceValue-->","ResourceValue-->"+Resource)
+
+                    if (it.isSuccessful) {
+                        Log.e("body->","body->"+Resource.success(it.body()))
+                        _users.postValue(Resource.success(it.body()))
+                    }else{
+                        _users.postValue(Resource.error(it.errorBody().toString(),null))
+                    }
+                }
+            }
+            else
+            {
+                Log.e("Networkdisconnected","NetworkdisConnected"+"Networkcdisonnected")
+                _users.postValue(Resource.error("No Internet Connection",null))
+
+            }
+
+        }
+
+            /*   mainRepository.latlng(12.9716,77.5946).let {
 
             Log.e("itdata","itdata"+it.body())
 
@@ -61,37 +87,30 @@ class TamperatureViewModel @Inject  constructor(
       */
 
 
-
-            _users.postValue(Resource.loading(null))
-            if (networkHelper.isNetworkConnected())
-            {
-                Log.e("Networkconnected","NetworkConnected"+"Networkconnected")
-                mainRepository.getUsers().let {
-
-                    //Log.e("DataResponse-->","DataResponse-->"+it.body())
-                   // Log.e("ResourceValue-->","ResourceValue-->"+Resource)
-
-                    if (it.isSuccessful) {
-                        Log.e("body->","body->"+Resource.success(it.body()))
-                        _users.postValue(Resource.success(it.body()))
-                    }else{
-                        _users.postValue(Resource.error(it.errorBody().toString(),null))
-                    }
-
-
-
-                }
-            }
-            else
-            {
-                Log.e("Networkdisconnected","NetworkdisConnected"+"Networkcdisonnected")
-                _users.postValue(Resource.error("No Internet Connection",null))
-
-            }
-
+//            _users.postValue(Resource.loading(null))
+//            if (networkHelper.isNetworkConnected())
+//            {
+//                Log.e("Networkconnected","NetworkConnected"+"Networkconnected")
+//                mainRepository.getUsers().let {
+//
+//                    //Log.e("DataResponse-->","DataResponse-->"+it.body())
+//                   // Log.e("ResourceValue-->","ResourceValue-->"+Resource)
+//
+//                    if (it.isSuccessful) {
+//                        Log.e("body->","body->"+Resource.success(it.body()))
+//                        _users.postValue(Resource.success(it.body()))
+//                    }else{
+//                        _users.postValue(Resource.error(it.errorBody().toString(),null))
+//                    }
+//                }
+//            }
+//            else
+//            {
+//                Log.e("Networkdisconnected","NetworkdisConnected"+"Networkcdisonnected")
+//                _users.postValue(Resource.error("No Internet Connection",null))
+//
+//            }
+//
+//        }
         }
     }
-
-
-
-}
