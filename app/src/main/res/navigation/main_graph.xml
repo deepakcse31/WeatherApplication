@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/tempereaturefragment">
+    <fragment
+        android:id="@+id/splashfragment"
+        android:name="com.example.weatherapplication.Ui.View.Fragment.SplashFragment"
+        tools:layout="@layout/fragment_splash"
+        android:label="splash_fragment"
+        >
+        <action
+            android:id="@+id/action_splashfragment_to_tempereaturefragment"
+            app:destination="@id/tempereaturefragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tempereaturefragment"
+        android:name="com.example.weatherapplication.Ui.View.Fragment.TamperatureFragment"
+        android:label="temperaturefragment"
+        tools:layout="@layout/fragment_tamperature"
+        />
+</navigation>
