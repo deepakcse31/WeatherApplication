@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.weatherapplication.R
 import com.example.weatherapplication.Ui.View.Utils.Status
 import com.example.weatherapplication.Ui.View.ViewModel.TamperatureViewModel
@@ -28,6 +29,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.internal.Contexts
+import hilt_aggregated_deps._com_example_weatherapplication_Ui_View_Fragment_SplashFragment_GeneratedInjector
 
 @AndroidEntryPoint
 class TamperatureFragment : Fragment() {
@@ -59,6 +61,10 @@ class TamperatureFragment : Fragment() {
         binding!!.swiperefresh.setOnRefreshListener {
             tamperatureViewModel.fetchweather((lastLocation)!!.latitude,(lastLocation)!!.longitude)
             binding!!.swiperefresh.setRefreshing(false);
+        }
+        binding?.todaytamperature?.setOnClickListener {
+            val action =TamperatureFragmentDirections.actionTempereaturefragmentToSplashfragment("deepak")
+            findNavController().navigate(action)
         }
         tamperatureViewModel.user.observe(viewLifecycleOwner) {
             when (it.status) {

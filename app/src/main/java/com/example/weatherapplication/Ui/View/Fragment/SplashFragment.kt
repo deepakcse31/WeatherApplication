@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.weatherapplication.R
 import com.example.weatherapplication.databinding.FragmentSplashBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SplashFragment : Fragment(R.layout.fragment_splash) {
     private var binding : FragmentSplashBinding?=null
     val tagname : String = "SplashFragment"
+      val args : SplashFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,6 +28,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     ): View? {
         // Inflate the layout for this fragment
         binding= FragmentSplashBinding.inflate(layoutInflater)
+        Log.e("Data","Data"+args.name)
         binding!!.textdata.setOnClickListener {
             findNavController().navigate(R.id.action_splashfragment_to_tempereaturefragment)
         }

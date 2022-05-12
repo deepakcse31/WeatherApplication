@@ -2,6 +2,7 @@ package com.example.weatherapplication.Ui.View.di
 
 import android.content.Context
 import com.example.weatherapplication.BuildConfig
+import com.example.weatherapplication.Ui.View.Network.NetworkConnectionLiveData
 import com.example.weatherapplication.Ui.View.Utils.NetworkHelper
 import com.example.weatherapplication.Ui.View.data.api.ApiHelper
 import com.example.weatherapplication.Ui.View.data.api.ApiHelperImpl
@@ -60,5 +61,9 @@ class ApplicationModule {
     fun provideNetworkHelper(@ApplicationContext appContext: Context):NetworkHelper {
         return NetworkHelper(appContext)
     }
-
+    @Provides
+    @Singleton
+    fun provideNetworkconnection(@ApplicationContext appContext: Context):NetworkConnectionLiveData {
+        return NetworkConnectionLiveData(appContext)
+    }
 }

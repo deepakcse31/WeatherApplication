@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_splashfragment_to_tempereaturefragment"
             app:destination="@id/tempereaturefragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -20,5 +23,13 @@
         android:name="com.example.weatherapplication.Ui.View.Fragment.TamperatureFragment"
         android:label="temperaturefragment"
         tools:layout="@layout/fragment_tamperature"
-        />
+        >
+
+    <action
+        android:id="@+id/action_tempereaturefragment_to_splashfragment"
+        app:destination="@id/splashfragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
 </navigation>
