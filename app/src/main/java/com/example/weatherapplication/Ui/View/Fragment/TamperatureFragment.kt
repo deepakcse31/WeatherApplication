@@ -7,29 +7,33 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
-import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.example.weatherapplication.R
-import com.example.weatherapplication.Ui.View.Utils.Status
-import com.example.weatherapplication.Ui.View.ViewModel.TamperatureViewModel
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.weatherapplication.Ui.View.Adapter.HomeAdapter
+import com.example.weatherapplication.Utils.Status
+import com.example.weatherapplication.ViewModel.TamperatureViewModel
 import com.example.weatherapplication.databinding.FragmentTamperatureBinding
+import com.example.weatherapplication.model.Weatherresponse
+import com.example.weatherapplication.model.testing
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.internal.Contexts
-import hilt_aggregated_deps._com_example_weatherapplication_Ui_View_Fragment_SplashFragment_GeneratedInjector
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class TamperatureFragment : Fragment() {
@@ -45,10 +49,10 @@ class TamperatureFragment : Fragment() {
     private var latitudeLabel: String? = null
     private var longitudeLabel: String? = null
 
+    lateinit var recycleviewadapter : HomeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -57,14 +61,37 @@ class TamperatureFragment : Fragment() {
     ): View? {
         // Inflate the layout for context fragment
         binding= FragmentTamperatureBinding.inflate(layoutInflater)
+       // applicationModule.toast("deepak",requireContext())
+        val layoutmanage : RecyclerView.LayoutManager=LinearLayoutManager(context)
+        binding?.recyclerview?.layoutManager=layoutmanage
+        recycleviewadapter=HomeAdapter()
+        binding?.recyclerview?.adapter=recycleviewadapter
+
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+            GlobalScope.launch {
+                val one = async {tamperatureViewModel.user }
+                val two = async { tamperatureViewModel.fetchweather(12.9716,77.5946) }
+               // println("The answer is ${one.await()  two.await()}")
+                Log.e("Dataresponse","Dataresponse"+one.await().value+"---->"+two.await())
+            }
+
+
         binding!!.swiperefresh.setOnRefreshListener {
             tamperatureViewModel.fetchweather((lastLocation)!!.latitude,(lastLocation)!!.longitude)
             binding!!.swiperefresh.setRefreshing(false);
         }
         binding?.todaytamperature?.setOnClickListener {
-            val action =TamperatureFragmentDirections.actionTempereaturefragmentToSplashfragment("deepak")
-            findNavController().navigate(action)
+            var data =testing("deepak","Kumar")
+            val bundle = Bundle()
+            bundle.putParcelable("selectedlead", data)
+
+            val action =
+                com.example.weatherapplication.Ui.View.Fragment.TamperatureFragmentDirections.actionTempereaturefragmentToSplashfragment(
+                    "nkjnk"
+                )
+            Navigation.findNavController(requireView(),action_tempereaturefragment_to_splashfragment)
+            findNavController().navigate(action_tempereaturefragment_to_splashfragment)
         }
         tamperatureViewModel.user.observe(viewLifecycleOwner) {
             when (it.status) {

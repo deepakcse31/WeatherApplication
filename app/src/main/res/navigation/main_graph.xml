@@ -22,14 +22,19 @@
         android:id="@+id/tempereaturefragment"
         android:name="com.example.weatherapplication.Ui.View.Fragment.TamperatureFragment"
         android:label="temperaturefragment"
-        tools:layout="@layout/fragment_tamperature"
-        >
+        tools:layout="@layout/fragment_tamperature">
 
-    <action
-        android:id="@+id/action_tempereaturefragment_to_splashfragment"
-        app:destination="@id/splashfragment" />
+        <action
+            android:id="@+id/action_tempereaturefragment_to_splashfragment"
+            app:destination="@id/splashfragment" />
         <argument
             android:name="name"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/camerafragment"
+        android:name="com.example.weatherapplication.Ui.View.Fragment.CameraFragment"
+        tools:layout="@layout/fragment_camera"
+        android:label="camera_fragment"
+        />
 </navigation>

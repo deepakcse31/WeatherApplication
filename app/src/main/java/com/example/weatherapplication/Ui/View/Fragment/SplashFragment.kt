@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SplashFragment : Fragment(R.layout.fragment_splash) {
     private var binding : FragmentSplashBinding?=null
     val tagname : String = "SplashFragment"
-      val args : SplashFragmentArgs by navArgs()
+      val args : com.example.weatherapplication.Ui.View.Fragment.SplashFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

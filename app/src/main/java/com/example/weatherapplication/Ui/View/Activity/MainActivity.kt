@@ -16,12 +16,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.weatherapplication.R
-import com.example.weatherapplication.Ui.View.Network.NetworkConnectionLiveData
+import com.example.weatherapplication.Network.NetworkConnectionLiveData
 import com.example.weatherapplication.databinding.ActivityMainBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

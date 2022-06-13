@@ -1,15 +1,12 @@
 package com.example.weatherapplication.Ui.View.Activity
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.weatherapplication.Ui.View.Network.NetworkConnectionLiveData
-import com.example.weatherapplication.Ui.View.Utils.NetworkHelper
-import com.example.weatherapplication.Ui.View.data.repository.MainRepository
+import com.example.weatherapplication.Network.NetworkConnectionLiveData
+import com.example.weatherapplication.Utils.NetworkHelper
+import com.example.weatherapplication.data.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import kotlin.coroutines.coroutineContext
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(

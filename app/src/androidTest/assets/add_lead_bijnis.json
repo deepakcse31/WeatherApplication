@@ -1,0 +1,202 @@
+{
+  "logo-url": "https://demo.ezetap.com/portal/images/logo.gif",
+  "heading-text": "Ezetap Android Assignment",
+  "uidata": [
+    {
+      "ui_type": "edittext",
+      "key": "edt_shop_name",
+      "input_type": "text",
+      "regex_pattern": "",
+      "max_length": 30,
+      "min_length": 3,
+      "all_caps": false,
+      "is_compulsory": true,
+      "is_visible": true,
+      "hint": "Shop name"
+    },{
+      "ui_type": "edittext",
+      "key": "edt_merchant_name",
+      "input_type": "text",
+      "regex_pattern": "",
+      "max_length": 30,
+      "min_length": 3,
+      "all_caps": false,
+      "is_compulsory": true,
+      "is_visible": true,
+      "hint": "Merchant name"
+    },
+    {
+      "ui_type": "edittext",
+      "key": "edt_merchant_contact_number",
+      "input_type": "phone",
+      "regex_pattern": "",
+      "max_length": 10,
+      "min_length": 10,
+      "all_caps": false,
+      "is_compulsory": true,
+      "is_visible": true,
+      "hint": "Merchant phone number"
+    },{
+      "ui_type": "spinner",
+      "key": "sp_category",
+      "hint": "Choose Categories",
+      "is_compulsory": true,
+      "is_visible": true,
+      "values": [
+        "Footware","Clothes"
+      ],
+      "hide": [
+        {
+          "values": [
+
+          ],
+          "keys": [
+
+          ]
+        },
+        {
+          "values": [
+
+          ],
+          "keys": [
+
+          ]
+        }
+      ],
+      "show": [
+        {
+          "values": [
+
+          ],
+          "keys": [
+
+          ]
+        }
+      ]
+    },{
+      "ui_type": "spinner",
+      "key": "sp_gst_registration",
+      "hint": "GST Registration status",
+      "is_compulsory": true,
+      "is_visible": true,
+      "values": [
+        "Yes",
+        "No"
+      ],
+      "hide": [
+        {
+          "values": [
+
+          ],
+          "keys": [
+
+          ]
+        },
+        {
+          "values": [
+
+          ],
+          "keys": [
+
+          ]
+        }
+      ],
+      "show": [
+        {
+          "values": [
+
+          ],
+          "keys": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "ui_type": "image",
+      "key": "iv_aadhar_front_image",
+      "title": "Aadhar front image",
+      "is_camera_only": false,
+      "is_compulsory": true,
+      "is_visible": true,
+      "place_holder": "https://assets.sentinelassam.com/h-upload/2021/01/11/1600x960_188224-aadhaar-card.jpg",
+      "sample_image": "",
+      "ic_upload_done": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/480px-Flat_tick_icon.svg.png",
+      "hint": "Adhar front image"
+    },
+    {
+      "ui_type": "image",
+      "key": "iv_aadhar_back_image",
+      "title": "Aadhar back image",
+      "is_camera_only": false,
+      "is_compulsory": true,
+      "is_visible": true,
+      "place_holder": "https://assets.sentinelassam.com/h-upload/2021/01/11/1600x960_188224-aadhaar-card.jpg",
+      "sample_image": "",
+      "ic_upload_done": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/480px-Flat_tick_icon.svg.png",
+      "hint": "Adhar back image"
+    },
+    {
+      "ui_type": "edittext",
+      "key": "edt_aadhar_number",
+      "input_type": "number",
+      "regex_pattern": "",
+      "max_length": 12,
+      "min_length": 12,
+      "all_caps": false,
+      "is_compulsory": true,
+      "is_visible": true,
+      "hint": "Enter Aadhar Number"
+    },{
+      "ui_type": "edittext",
+      "key": "edt_shop_size",
+      "input_type": "text",
+      "regex_pattern": "",
+      "max_length": 30,
+      "min_length": 3,
+      "all_caps": false,
+      "is_compulsory": true,
+      "is_visible": true,
+      "hint": "Size of the shop"
+    },
+    {
+      "ui_type": "image",
+      "key": "iv_shop_image",
+      "title": "Shop front image",
+      "is_camera_only": false,
+      "is_compulsory": true,
+      "is_visible": true,
+      "place_holder": "https://assets.sentinelassam.com/h-upload/2021/01/11/1600x960_188224-aadhaar-card.jpg",
+      "sample_image": "",
+      "ic_upload_done": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/480px-Flat_tick_icon.svg.png",
+      "hint": "Upload a image of a shop with shop name"
+    },
+    {
+      "ui_type": "image",
+      "key": "iv_pob_front_image",
+      "title": "Proof of business",
+      "is_camera_only": true,
+      "is_compulsory": true,
+      "is_visible": false,
+      "place_holder": "https://assets.sentinelassam.com/h-upload/2021/01/11/1600x960_188224-aadhaar-card.jpg",
+      "sample_image": "",
+      "ic_upload_done": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/480px-Flat_tick_icon.svg.png",
+      "hint": "Visiting card/ Bill book image"
+    },{
+      "ui_type": "image",
+      "key": "iv_sample_image",
+      "title": "Verification screenshot",
+      "is_camera_only": true,
+      "is_compulsory": true,
+      "is_visible": false,
+      "place_holder": "https://assets.sentinelassam.com/h-upload/2021/01/11/1600x960_188224-aadhaar-card.jpg",
+      "sample_image": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+      "ic_upload_done": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/480px-Flat_tick_icon.svg.png",
+      "hint": "Upload the image/ screenshot of the Under \nverification screen"
+    },
+    {
+      "ui_type": "button",
+      "value": "Submit"
+    }
+  ]
+}
